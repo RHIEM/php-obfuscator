@@ -124,7 +124,7 @@ class ScramblePrivateMethod extends ScramblerVisitor
     {
         foreach ($nodes as $node) {
             // Scramble the private method definitions
-            if ($node instanceof ClassMethod && ($node->type & ClassNode::MODIFIER_PRIVATE)) {
+            if ($node instanceof ClassMethod && ($node->type & ClassNode::MODIFIER_PRIVATE) && (substr($node->name,0,1) == '_')) {
 
                 // Record original name and scramble it
                 $originalName = $node->name;
